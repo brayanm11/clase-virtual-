@@ -28,19 +28,19 @@ Los diagramas de bloques constituyen una herramienta fundamental en el modelamie
 
 
 ## 3. Subsecciones
-###3.1. Modelado de sistemas de mezcla
+### 3.1. Modelado de sistemas de mezcla
 
 En los sistemas de mezcla, se considera un tanque donde entran dos flujos con distintas concentraciones. Se busca obtener una expresión que modele la concentración de la mezcla dentro del tanque a lo largo del tiempo, considerando el balance de masa.
-
-###3.2. Modelado de sistemas térmicos
+ 
+### 3.2. Modelado de sistemas térmicos
 
 El modelado térmico considera la transferencia de calor entre un cuerpo y su entorno. A través de la ley de conservación de energía y elementos como resistencia térmica y capacidad térmica, se forma una ecuación diferencial que se transforma en una función de transferencia.
 
-###3.3. Modelado de sistemas eléctricos equivalentes
+### 3.3. Modelado de sistemas eléctricos equivalentes
 
 El modelamiento eléctrico se utiliza como analogía para representar sistemas de otros dominios (ej: masa-resorte-amortiguador en forma de circuitos RLC) facilitando su análisis mediante componentes conocidos como resistencias, inductancias y capacitancias.
 
-###3.4. Diagramas de bloques con retroalimentación
+### 3.4. Diagramas de bloques con retroalimentación
 
 Los diagramas de bloques permiten representar la realimentación (feedback) mediante la conexión de una parte de la salida nuevamente a la entrada. Esta configuración es esencial en sistemas de control y regulación.
 ## 4. Ejemplos
