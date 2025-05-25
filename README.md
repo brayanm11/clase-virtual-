@@ -1,195 +1,242 @@
-# Modelamiento mediante Diagramas de Bloques
-Los diagramas de bloques constituyen una herramienta fundamental en el modelamiento y análisis de sistemas dinámicos. Su utilidad radica en representar visualmente la relación funcional entre los distintos componentes de un sistema, facilitando el diseño, la comprensión y la implementación de sistemas de control. Este tipo de modelamiento se basa en el uso de funciones de transferencia para representar los elementos del sistema y su interacción a través de señales de entrada y salida. Se aplica comúnmente en ingeniería eléctrica, mecánica, térmica, hidráulica, y procesos químicos, permitiendo una transición eficiente entre el modelo físico y su análisis computacional.
+# Sistemas de segundo orden
+
+Los sistemas de segundo orden son fundamentales en la ingeniería de control, ya que modelan una amplia gama de sistemas físicos como oscilaciones mecánicas, circuitos eléctricos RLC, estructuras con amortiguamiento, y sistemas de temperatura o presión. La dinámica de estos sistemas está gobernada por ecuaciones diferenciales de segundo orden, que pueden analizarse eficientemente mediante su representación en el dominio de Laplace. Esta clase busca explorar detalladamente el comportamiento de estos sistemas, sus características temporales, sus respuestas típicas y cómo se interpretan en el plano complejo.
+
+
 ## 1. Subtítulos
-1.1 Introducción al modelamiento de sistemas dinámicos
 
-1.2 ¿Qué es un diagrama de bloques?
+1.1 Introducción a los sistemas de segundo orden
 
-1.3 Elementos fundamentales de los diagramas de bloques
+1.2 Función de transferencia estándar
 
-1.4 Diagramas de bloques aplicados a diferentes dominios físicos
+1.3 Parámetros dinámicos: frecuencia natural y factor de amortiguamiento
 
-1.5 Transformación de ecuaciones diferenciales a diagramas de bloques
+1.4 Respuesta al escalón unitario
 
-1.6 Ventajas y limitaciones del modelamiento por bloques
+1.5 Clasificación según el amortiguamiento
+
+1.6 Análisis en el planos
+
+1.7 Cálculo del tiempo pico, sobre impulso, y tiempo de establecimiento
+
+1.8 Sistemas con retardo (tiempo muerto)
 
 ## 2. Definiciones
-🔑 Sistema físico: conjunto de elementos interconectados que interactúan mediante el intercambio de energía y/o materia.
+🔑 Sistema de segundo orden: sistema cuya ecuación diferencial característica contiene una derivada de segundo orden, y su comportamiento se describe mediante una función de transferencia cuadrática.
 
-🔑 Modelamiento: proceso de construcción de una representación matemática o gráfica de un sistema real.
+🔑 Frecuencia natural ($\omega_n$): frecuencia en radianes por segundo a la que un sistema oscilaría si no existiera amortiguamiento.
 
-🔑 Diagrama de bloques: representación gráfica de un sistema donde cada bloque representa una operación matemática o función de transferencia.
+🔑 Factor de amortiguamiento ($\zeta$): número adimensional que representa la cantidad de disipación de energía en el sistema.
 
-🔑 Función de transferencia: cociente de la transformada de Laplace de la salida sobre la transformada de Laplace de la entrada, bajo condiciones iniciales nulas.
+🔑 Sobreimpulso ($M_p$): máxima desviación porcentual del valor final, causada por la oscilación de la respuesta.
 
-🔑 Nodo de suma: elemento que realiza la suma algebraica de señales que entran al sistema.
+🔑 Tiempo de establecimiento ($T_s$): tiempo requerido para que la respuesta permanezca dentro de un margen (generalmente 2%) alrededor del valor final.
 
-🔑 Punto de ramificación: punto desde el cual una señal se dirige a varios bloques simultáneamente.
+🔑 Tiempo pico ($T_p$): instante en que la respuesta alcanza su valor máximo.
 
+🔑 Tiempo muerto ($T_d$): retardo temporal entre la aplicación de la entrada y el inicio visible de la respuesta del sistema.
 
 ## 3. Subsecciones
-### 3.1. Modelado de sistemas de mezcla
 
-En los sistemas de mezcla, se considera un tanque donde entran dos flujos con distintas concentraciones. Se busca obtener una expresión que modele la concentración de la mezcla dentro del tanque a lo largo del tiempo, considerando el balance de masa.
- 
-### 3.2. Modelado de sistemas térmicos
+### 3.1. Función de transferencia estándar
+La forma canónica de un sistema de segundo orden es:
 
-El modelado térmico considera la transferencia de calor entre un cuerpo y su entorno. A través de la ley de conservación de energía y elementos como resistencia térmica y capacidad térmica, se forma una ecuación diferencial que se transforma en una función de transferencia.
+$$G(s)=\frac{w_{n}^{2}}{s^{2}+2\zeta w_{n}+w_{n}^{2}}$$
 
-### 3.3. Modelado de sistemas eléctricos equivalentes
+Esta expresión representa el cociente entre la salida y la entrada en el dominio de Laplace, bajo condiciones iniciales nulas.
 
-El modelamiento eléctrico se utiliza como analogía para representar sistemas de otros dominios (ej: masa-resorte-amortiguador en forma de circuitos RLC) facilitando su análisis mediante componentes conocidos como resistencias, inductancias y capacitancias.
+### 3.2. Clasificación según $\zeta$
+$\zeta > 1$: Sobreamortiguado (respuesta lenta, sin oscilaciones)
 
-### 3.4. Diagramas de bloques con retroalimentación
+$\zeta = 1$: Críticamente amortiguado (tiempo mínimo sin oscilaciones)
 
-Los diagramas de bloques permiten representar la realimentación (feedback) mediante la conexión de una parte de la salida nuevamente a la entrada. Esta configuración es esencial en sistemas de control y regulación.
+$0 < \zeta < 1$: Subamortiguado (oscilación con atenuación)
+
+$\zeta = 0$: No amortiguado (oscilación pura, sin atenuación)
+
+### 3.3. Parámetros característicos de desempeño
+Frecuencia natural ($\omega_n$): determina la rapidez del sistema.
+
+Frecuencia amortiguada ($\omega_d$): $\omega_d = \omega_n \sqrt{1 - \zeta^2}$
+
+Tiempo pico ($T_p$): $\frac{\pi}{\omega_d}$
+
+Sobreimpulso ($M_p$): $100\cdot e^{\left(-\frac{\pi \zeta}{\sqrt{1 - \zeta^2}}\right)}%$
+
+Tiempo de establecimiento ($T_s$): $\frac{4}{\zeta \omega_n}$
+
+### 3.4. Tiempo muerto (retardo)
+Un sistema con retardo se representa como:
+
+$$G(s)=G_{0}(s).e^{-T\Delta s}$$
+
+Donde $G_0(s)$ es la función de transferencia sin retardo y $T_d$ es el tiempo muerto.
+
 ## 4. Ejemplos
-💡 Ejemplo 1: Sistema de mezcla en tanque continuo
+💡 Ejemplo 1: Determinar parámetros del sistema
 
-Se tienen dos entradas de flujo $Q_1$ y $Q_2$ con concentraciones $C_1$ y $C_2$ respectivamente. Se desea modelar la concentración $C(t)$ dentro del tanque.
+Dada la función de transferencia:
 
+$$G(s)=\frac{25}{s^{2}+6s+25}$$
 
+Comparando con la forma estándar:
 
-Figura 1. Diagrama de bloques del sistema de mezcla.
+$2\xi w_{n}=6$ y $w_{n}^{2}=25$
 
-💡 Ejemplo 2: Sistema térmico con disipación
+Se obtiene:
 
-Un sistema térmico recibe calor a través de una fuente $q(t)$ y disipa energía hacia el ambiente $T_a$. Se representa mediante un modelo térmico con resistencia $R$ y capacidad térmica $C$.
+$w_{n}=5$, $\zeta =\frac{6}{2.5}=0.6$
 
+Cálculo de otros parámetros:
 
+$\omega_d = 5\sqrt{1 - 0.36} = 4$
 
-Figura 2. Diagrama de bloques del sistema térmico.
+$T_p = \frac{\pi}{\omega_d} = 0.785$ s
 
-💡 Ejemplo 3: Sistema masa-resorte-amortiguador
+$T_s = \frac{4}{\zeta\omega_n} = 1.33$ s
 
-Se desea modelar un sistema mecánico clásico formado por una masa $m$, un resorte con constante $k$ y un amortiguador con coeficiente de fricción $b$. La entrada es una fuerza $F(t)$.
+$M_p = 16.3%$
 
+💡 Ejemplo 2: Sistema con retardo
 
+Dado un sistema con retardo:
 
-Figura 3. Diagrama de bloques del sistema masa-resorte-amortiguador.
+$$G(s)=\frac{10}{s^{2}+3s+10}e^{-2s}$$
+
+Identificamos:
+
+$\omega_n = \sqrt{10} \approx 3.16$
+
+$2\zeta\omega_n = 3 \Rightarrow \zeta = 0.474$
+
+$T_d = 2$ s
+
+Este retardo causa un desplazamiento temporal de la respuesta sin cambiar la forma de la curva.
 
 ## 5. Ecuaciones
-💡 Ejemplo 1 (Mezcla):
 
-Ecuación diferencial:
+💡Función de transferencia estándar:
 
-$$\frac{dC(t)}{dt}=\frac{Q1(C1-C(t))+Q2(C2-C(t))}{V}$$
+$$G(s)=\frac{w_{n}^{2}}{s^{2}+2\zeta w_{n}s+w_{n}^{2}}$$
 
-Transformada de Laplace:
+💡Frecuencia amortiguada:
 
-$$C(s)=\frac{Q1C1+Q2C2}{Vs+(Q1+Q2)}$$
+$$w_{d}=w_{n}\sqrt{1-\zeta ^{2}}$$
 
-💡 Ejemplo 2 (Térmico):
+💡Tiempo pico:
 
-Ecuación diferencial:
+$$T_{p}=\frac{\Pi }{w_{n}\sqrt{1-\zeta ^{2}}}$$
 
-$$C\frac{DT(t)}{dt}+\frac{T(t)-Ta}{R}=q(t)$$
+💡Sobre impulso:
 
-Transformada de Laplace:
+$$M_{p}=e-(\frac{\Pi }{\sqrt{1-\zeta ^{2}}})*100%$$
 
-$$T(s)=\frac{R}{RCs+1}Q(s)+\frac{1}{RCs+1}Ta$$
+💡Tiempo de establecimiento:
 
-💡 Ejemplo 3 (Masa-resorte-amortiguador):
-
-Ecuación diferencial:
-
-$$F(t)=m\frac{d^{2}x(t)}{dt^{2}}+b\frac{dx(t)}{dt}+kx(t)$$
-
-Transformada de Laplace:
-
-$$X(s)=\frac{1}{ms^{2}+bs+k}F(s)$$
-
-## 6. Figuras
-
-💡**Ejemplo 1:**
-
-![Figura 1. Diagrama de bloques del sistema de mezcla.](1.png)
-
-💡**Ejemplo 2:**
-
-![Figura 2. Diagrama de bloques del sistema térmico.](2.png)
-
-💡**Ejemplo 3:**
-
-![Figura 3. Diagrama de bloques del sistema masa-resorte-amortiguador.](3.png)
+$$T_{s}=\frac{4}{\zeta w_{n}}$$
 
 
+## 6. figuras
 
-## 7. Código
-💡 Código simbólico en Python:
+💡Variación del Factor de Amortiguamiento
+Veamos la dinámica de sistemas de segundo orden ante la variación del factor de amortiguamiento:
 
+![figura1](f1a.png)
+
+💡Variación de la Frecuencia Natural No Amortiguada
+
+![figura2](f2a.png)
+
+## 7. Tablas
+💡 Tabla 1: Efecto del factor de amortiguamiento
+
+
+| **$\zeta$** | **Tipo de respuesta** |**Comportamiento** |
+|-------------|-----------------------|------------------|
+|      0      | Oscilatorio puro      |Oscila indefinidamente|
+|       0 < $\zeta$ < 1    |  Subamortiguado  |Oscila y se estabiliza|
+|      1      |     Criticamente amortiguado  |Sin oscilaciones, rápida estabilización|
+|    > 1     |      sobreamortiguado   |Lenta estabilización sin oscilaciones |
+
+
+
+
+## 8. Código
+💡 Simulación con Python:
 ```
-import sympy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import lti, step
 
-# Modelo mezcla
-t, s = sp.symbols('t s')
-Q1, Q2, C1, C2, V = sp.symbols('Q1 Q2 C1 C2 V')
-C_s = (Q1*C1 + Q2*C2) / (V*s + Q1 + Q2)
-sp.pprint(C_s)
+# Parámetros
+wn = 5
+zeta = 0.6
+sys = lti([wn**2], [1, 2*zeta*wn, wn**2])
+t, y = step(sys)
 
-# Modelo térmico
-R, C, Ta, Qs = sp.symbols('R C T_a Q')
-T_s = R / (R*C*s + 1) * Qs + (1 / (R*C*s + 1)) * Ta
-sp.pprint(T_s)
-
-# Modelo mecánico
-m, b, k, F = sp.symbols('m b k F')
-X_s = F / (m*s**2 + b*s + k)
-sp.pprint(X_s)
+# Gráfica
+plt.plot(t, y, label=f'zeta = {zeta}')
+plt.axhline(1, color='gray', linestyle='--')
+plt.title('Respuesta al escalón - Sistema de Segundo Orden')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Salida')
+plt.grid(True)
+plt.legend()
+plt.show()
 ```
 
-## 8. Ejercicios
+## 9. Ejercicios:
 
-📚 Ejercicio 1: Obtener la función de transferencia del siguiente diagrama de bloques:
+📚 Ejercicio 1
 
-![ejercicio 1](ejercicio1.png)
+Planteamiento: Dada la función:
 
-Paso a paso
+$$G(s)=\frac{36}{s^{2}+12s+36}$$
 
-![ejercicio 1](1.1.png)
+Solución:
 
-![ejercicio 1](1.2.png)
+$\omega_n = 6$, $2\zeta\omega_n = 12$ $\Rightarrow \zeta = 1$
 
-![ejercicio 1](1.3.png)
+Es un sistema críticamente amortiguado
 
-![ejercicio 1](1.4.png)
+$T_s = \frac{4}{\zeta \omega_n} = \frac{4}{6} = 0.67$ s
 
-📚 Ejercicio 2: Obtener la función de transferencia simplificada correspondiente al siguiente diagrama de bloques.
+No hay sobreimpulso
 
-![ejercicio 2](ejercicio2.png)
+📚 Ejercicio 2
 
-Paso 1
-Aplicamos la regla 5 de la tabla para bloques en paralelo, sumando así G2 y G3.
+Planteamiento: Calcular $T_p$ y $M_p$ para:
 
-![ejercicio 1](2.1.png)
+$$G(s)=\frac{9}{s^{2}+3s+9}$$
 
-Paso 2
-Después, con la regla 4 para combinación de bloques reducimos G1:
+Solución:
 
-![ejercicio 1](2.2.png)
+$\omega_n = 3$, $\zeta = 0.5$
 
-Paso 3
-Por último, aplicamos la regla 13 para eliminar la retroalimentación y así obtenemos nuestro bloque equivalente.
+$T_p = \frac{\pi}{3\sqrt{1 - 0.25}} = 1.21$ s
 
-![ejercicio 1](2.3.png)
+$M_p = e^{-\pi \cdot 0.5 / \sqrt{1 - 0.25}} \cdot 100% \approx 16.3%$
 
-## 9. Conclusiones
-Los diagramas de bloques permiten modelar sistemas de forma visual y modular.
 
-Facilitan la obtención de funciones de transferencia y el análisis de estabilidad y respuesta.
+## 10. Conclusiones
 
-Son útiles en una amplia variedad de dominios físicos.
+Los sistemas de segundo orden se caracterizan completamente por $\zeta$ y $\omega_n$.
 
-Su integración con herramientas simbólicas como Python/SymPy mejora el análisis.
+La posición de polos en el plano complejo permite predecir la respuesta.
 
-## 10. Referencias
+Es fundamental distinguir entre amortiguamiento bajo, crítico y alto para interpretar la respuesta correctamente.
+
+El retardo (tiempo muerto) es crucial para el control y puede afectar la estabilidad.
+
+## 11. Referencias
+
+Apuntes de clase: Sistemas de segundo orden.
+
+Dorf, R. & Bishop, R. (2011). Modern Control Systems.
 
 Ogata, K. (2010). Ingeniería de Control Moderna.
 
-Nise, N. (2015). Sistemas de Control en Ingeniería.
+Python con SciPy y Matplotlib para simulaciones.
 
-Apuntes del curso: Modelamiento de sistemas dinámicos.
+https://controlautomaticoeducacion.com/control-realimentado/sistemas-de-segundo-orden/
 
-Simulaciones y resolución simbólica con SymPy (Python).
-
-https://suayed.cuautitlan.unam.mx/uapas/4/
