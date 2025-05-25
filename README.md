@@ -107,11 +107,12 @@ Todas las figuras que incluya deben ser generadas por ustedes, **no utilizar las
 
 💡**Ejemplo 2:**
 
-![Figura de prueba](1.png)
+![Figura 1. Diagrama de bloques del sistema de mezcla.](1.png)
 
-Figura 1. Figura de prueba
+![Figura 2. Diagrama de bloques del sistema térmico.](2.png)
 
-Incluya la respectiva etiqueta a modo de descripción de la figura y mantenga numeración consecutiva para todas las figuras de la clase.
+![Figura 3. Diagrama de bloques del sistema masa-resorte-amortiguador.](3.png)
+
 
 ## 7. Tablas
 En caso de necesitar la inclusión de tablas para organizar información se recomienda el uso de la herramienta del siguiente enlace https://www.tablesgenerator.com/markdown_tables , la cual permite organizar la información dentro de la tabla y genera el código markdown automáticamente:
