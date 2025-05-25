@@ -191,3 +191,5 @@ Nise, N. (2015). Sistemas de Control en Ingeniería.
 Apuntes del curso: Modelamiento de sistemas dinámicos.
 
 Simulaciones y resolución simbólica con SymPy (Python).
+
+https://suayed.cuautitlan.unam.mx/uapas/4/
