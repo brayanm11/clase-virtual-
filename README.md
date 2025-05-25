@@ -69,24 +69,9 @@ Se desea modelar un sistema mecánico clásico formado por una masa $m$, un reso
 Figura 3. Diagrama de bloques del sistema masa-resorte-amortiguador.
 
 ## 5. Ecuaciones
-Para la edición de ecuaciones debe utilizar la etiqueta '$$' al comienzo y final de la ecuación para que la ecuación quede centrada ocupando una línea. Si se quiere que la ecuación quede integrada en el texto debe utilizar la etiqueta '$' al comienzo y final de la ecuación. Las ecuaciones pueden ser editadas utilizando el código LATEX, en el siguiente enlace encuentran un editor de ecuaciones que les genera el código. http://www.alciro.org/tools/matematicas/editor-ecuaciones.jsp . Sin embargo hay muchas otras herramientas que pueden utilizar para esto.
+💡 Ejemplo 1 (Mezcla):
 
-💡**Ejemplo 1:** si se va a representar la ecuación de la ley de Ohm se puede mostrar así $R=\frac{V}{I}$ o también,
-
-$$R=\frac{V}{I}$$
-
-$${
-\begin{pmatrix*}[r]
-63 & 71 & 2\\
-6 & 829 & 12\\
-599 & 9 & 361
-\end{pmatrix*}
-}={\begin{pmatrix*}[r]
-63 & 71 & 2\\
-6 & 829 & 12\\
-599 & 9 & 361
-\end{pmatrix*}}$$
-
+$$\frac{dC(t)}{dt}=\frac{Q1(C1-C(t))+Q2(C2-C(t))}{V}$$
 
 ## 6. Figuras
 Todas las figuras que incluya deben ser generadas por ustedes, **no utilizar las figuras de las presentaciones**. Para incluir figuras puede seguir los siguientes pasos:
