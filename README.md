@@ -154,6 +154,23 @@ Paso a paso
 
 ![ejercicio 1](1.4.png)
 
+📚 Ejercicio 2: Obtener la función de transferencia simplificada correspondiente al siguiente diagrama de bloques.
+
+Paso 1
+Aplicamos la regla 5 de la tabla para bloques en paralelo, sumando así G2 y G3.
+
+
+
+Paso 2
+Después, con la regla 4 para combinación de bloques reducimos G1:
+
+
+
+Paso 3
+Por último, aplicamos la regla 13 para eliminar la retroalimentación y así obtenemos nuestro bloque equivalente.
+
+
+
 
 
 ## 9. Conclusiones
