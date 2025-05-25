@@ -44,7 +44,29 @@ El modelamiento eléctrico se utiliza como analogía para representar sistemas d
 
 Los diagramas de bloques permiten representar la realimentación (feedback) mediante la conexión de una parte de la salida nuevamente a la entrada. Esta configuración es esencial en sistemas de control y regulación.
 ## 4. Ejemplos
-Si en algún caso pretende dar un ejemplo explicativo ya sea a través de texto o através de ecuaciones matemáticos, utilizar la palabra 'Ejemplo' seguido de una numeración consecutiva dentro de la clase. Utilice el emoji 💡 antecediendo la palabra.
+💡 Ejemplo 1: Sistema de mezcla en tanque continuo
+
+Se tienen dos entradas de flujo $Q_1$ y $Q_2$ con concentraciones $C_1$ y $C_2$ respectivamente. Se desea modelar la concentración $C(t)$ dentro del tanque.
+
+
+
+Figura 1. Diagrama de bloques del sistema de mezcla.
+
+💡 Ejemplo 2: Sistema térmico con disipación
+
+Un sistema térmico recibe calor a través de una fuente $q(t)$ y disipa energía hacia el ambiente $T_a$. Se representa mediante un modelo térmico con resistencia $R$ y capacidad térmica $C$.
+
+
+
+Figura 2. Diagrama de bloques del sistema térmico.
+
+💡 Ejemplo 3: Sistema masa-resorte-amortiguador
+
+Se desea modelar un sistema mecánico clásico formado por una masa $m$, un resorte con constante $k$ y un amortiguador con coeficiente de fricción $b$. La entrada es una fuerza $F(t)$.
+
+
+
+Figura 3. Diagrama de bloques del sistema masa-resorte-amortiguador.
 
 ## 5. Ecuaciones
 Para la edición de ecuaciones debe utilizar la etiqueta '$$' al comienzo y final de la ecuación para que la ecuación quede centrada ocupando una línea. Si se quiere que la ecuación quede integrada en el texto debe utilizar la etiqueta '$' al comienzo y final de la ecuación. Las ecuaciones pueden ser editadas utilizando el código LATEX, en el siguiente enlace encuentran un editor de ecuaciones que les genera el código. http://www.alciro.org/tools/matematicas/editor-ecuaciones.jsp . Sin embargo hay muchas otras herramientas que pueden utilizar para esto.
@@ -99,13 +121,26 @@ Tabla 1. Tabla de ejemplo
 Cada tabla debe llevar la etiqueta que describa su contenido y numeración consecutiva para todas las tablas
 
 ## 8. Código
-Teniendo en cuenta que el curso requiere del desarrollo de código matlab, c, c++ u otro. Si requiere incluir pequeños segmentos de código en los apuntes hágalos de la siguiente manera:
+💡 Código simbólico en Python:
 
-💡**Ejemplo 4:**
 ```
-var sumar2 = function(numero) {
-  return numero + 2;
-}
+import sympy as sp
+
+# Modelo mezcla
+t, s = sp.symbols('t s')
+Q1, Q2, C1, C2, V = sp.symbols('Q1 Q2 C1 C2 V')
+C_s = (Q1*C1 + Q2*C2) / (V*s + Q1 + Q2)
+sp.pprint(C_s)
+
+# Modelo térmico
+R, C, Ta, Qs = sp.symbols('R C T_a Q')
+T_s = R / (R*C*s + 1) * Qs + (1 / (R*C*s + 1)) * Ta
+sp.pprint(T_s)
+
+# Modelo mecánico
+m, b, k, F = sp.symbols('m b k F')
+X_s = F / (m*s**2 + b*s + k)
+sp.pprint(X_s)
 ```
 
 ## 9. Ejercicios
@@ -117,7 +152,20 @@ Deben agregar 2 ejercicios con su respectiva solución, referentes a los temas t
 | Presenta menos del 10% de los temas o no presenta por  el medio y formato  solicitado | Presenta menos del 40% de los temas solicitados, y  cumple parcialmente la plantilla | Presenta menos del 60% de los temas solicitados (con descripciones, gráficos tablas, etc), y cumple  parcialmente la plantilla. No presenta la totalidad  de ejercicios resueltos | Presenta menos del 80% de los temas solicitados (con descripciones, gráficos, tablas, etc) y cumple con  la plantilla. No presenta  la totalidad de ejercicios  resueltos | Presenta el 100% de los temas vistos en clase (con descripciones, gráficos, tablas, etc), siguiendo totalmente la plantilla. presenta la  totalidad de los ejercicios solicitados |
 
 ## 10. Conclusiones
-Agregue unas breves conclusiones sobre los temas trabajados en cada clase, puede ser a modo de resumen de lo trabajado o a indicando lo aprendido en cada clase
+Los diagramas de bloques permiten modelar sistemas de forma visual y modular.
+
+Facilitan la obtención de funciones de transferencia y el análisis de estabilidad y respuesta.
+
+Son útiles en una amplia variedad de dominios físicos.
+
+Su integración con herramientas simbólicas como Python/SymPy mejora el análisis.
 
 ## 11. Referencias
-Agregue un subtítulo al final donde pueda poner todas las referencias consultadas incluyendo el origen o fuente de los ejercicios planteados. Tambien dentro del texto referencie los textos o artículos consultados y las figuras y tablas dentro de la explicación de las mismas.
+
+Ogata, K. (2010). Ingeniería de Control Moderna.
+
+Nise, N. (2015). Sistemas de Control en Ingeniería.
+
+Apuntes del curso: Modelamiento de sistemas dinámicos.
+
+Simulaciones y resolución simbólica con SymPy (Python).
