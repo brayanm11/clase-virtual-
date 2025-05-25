@@ -1,7 +1,7 @@
-### Modelamiento mediante Diagramas de Bloques
+# Modelamiento mediante Diagramas de Bloques
 Los diagramas de bloques constituyen una herramienta fundamental en el modelamiento y análisis de sistemas dinámicos. Su utilidad radica en representar visualmente la relación funcional entre los distintos componentes de un sistema, facilitando el diseño, la comprensión y la implementación de sistemas de control. Este tipo de modelamiento se basa en el uso de funciones de transferencia para representar los elementos del sistema y su interacción a través de señales de entrada y salida. Se aplica comúnmente en ingeniería eléctrica, mecánica, térmica, hidráulica, y procesos químicos, permitiendo una transición eficiente entre el modelo físico y su análisis computacional.
 
-1. Subtítulos
+## 1. Subtítulos
 1.1 Introducción al modelamiento de sistemas dinámicos
 
 1.2 ¿Qué es un diagrama de bloques?
@@ -14,7 +14,8 @@ Los diagramas de bloques constituyen una herramienta fundamental en el modelamie
 
 1.6 Ventajas y limitaciones del modelamiento por bloques
 
-2. Definiciones
+## 2. Definiciones
+
 🔑 Sistema físico: conjunto de elementos interconectados que interactúan mediante el intercambio de energía y/o materia.
 
 🔑 Modelamiento: proceso de construcción de una representación matemática o gráfica de un sistema real.
@@ -27,7 +28,8 @@ Los diagramas de bloques constituyen una herramienta fundamental en el modelamie
 
 🔑 Punto de ramificación: punto desde el cual una señal se dirige a varios bloques simultáneamente.
 
-3. Subsecciones
+## 3. Subsecciones
+
 3.1. Modelado de sistemas de mezcla
 En los sistemas de mezcla, se considera un tanque donde entran dos flujos con distintas concentraciones. Se busca obtener una expresión que modele la concentración de la mezcla dentro del tanque a lo largo del tiempo, considerando el balance de masa.
 
@@ -40,45 +42,19 @@ El modelamiento eléctrico se utiliza como analogía para representar sistemas d
 3.4. Diagramas de bloques con retroalimentación
 Los diagramas de bloques permiten representar la realimentación (feedback) mediante la conexión de una parte de la salida nuevamente a la entrada. Esta configuración es esencial en sistemas de control y regulación.
 
-4. Ejemplos
+## 4. Ejemplos
+
 💡 Ejemplo 1: Sistema de mezcla en tanque continuo
 
-Se tienen dos entradas de flujo 
-Q
-1
- y 
-Q
-2
- con concentraciones 
-C
-1
- y 
-C
-2
- respectivamente. Se desea modelar la concentración 
-C
-(
-t
-)
- dentro del tanque.
+Se tienen dos entradas de flujo $Q_1$ y $Q_2$ con concentraciones $C_1$ y $C_2$ respectivamente. Se desea modelar la concentración $C(t)$ dentro del tanque.
 
 Figura 1. Diagrama de bloques del sistema de mezcla.
 
 💡 Ejemplo 2: Sistema térmico con disipación
 
-Un sistema térmico recibe calor a través de una fuente 
-q
-(
-t
-)
- y disipa energía hacia el ambiente 
-T
-a
-. Se representa mediante un modelo térmico con resistencia 
-R
- y capacidad térmica 
-C
-.
+Un sistema térmico recibe calor a través de una fuente $q(t)$ y disipa energía hacia el ambiente $T_a$. Se representa mediante un modelo térmico con resistencia $R$ y capacidad térmica $C$.
+
+
 
 Figura 2. Diagrama de bloques del sistema térmico.
 
