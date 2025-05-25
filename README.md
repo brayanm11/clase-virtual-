@@ -71,7 +71,33 @@ Figura 3. Diagrama de bloques del sistema masa-resorte-amortiguador.
 ## 5. Ecuaciones
 💡 Ejemplo 1 (Mezcla):
 
+Ecuación diferencial:
+
 $$\frac{dC(t)}{dt}=\frac{Q1(C1-C(t))+Q2(C2-C(t))}{V}$$
+
+Transformada de Laplace:
+
+$$C(s)=\frac{Q1C1+Q2C2}{Vs+(Q1+Q2)}$$
+
+💡 Ejemplo 2 (Térmico):
+
+Ecuación diferencial:
+
+$$C\frac{DT(t)}{dt}+\frac{T(t)-Ta}{R}=q(t)$$
+
+Transformada de Laplace:
+
+$$T(s)=\frac{R}{RCs+1}Q(s)+\frac{1}{RCs+1}Ta$$
+
+💡 Ejemplo 3 (Masa-resorte-amortiguador):
+
+Ecuación diferencial:
+
+$$F(t)=m\frac{d^{2}x(t)}{dt^{2}}+b\frac{dx(t)}{dt}+kx(t)$$
+
+Transformada de Laplace:
+
+$$X(s)=\frac{1}{ms^{2}+bs+k}F(s)$$
 
 ## 6. Figuras
 Todas las figuras que incluya deben ser generadas por ustedes, **no utilizar las figuras de las presentaciones**. Para incluir figuras puede seguir los siguientes pasos:
