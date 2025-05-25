@@ -100,16 +100,16 @@ Transformada de Laplace:
 $$X(s)=\frac{1}{ms^{2}+bs+k}F(s)$$
 
 ## 6. Figuras
-Todas las figuras que incluya deben ser generadas por ustedes, **no utilizar las figuras de las presentaciones**. Para incluir figuras puede seguir los siguientes pasos:
-* Primero escribimos ![]().
-* Después escribimos, dentro de los corchetes, el texto alternativo. Este es opcional y solo entra en acción cuando no se puede cargar la imagen correctamente.
-* Después escribimos, dentro de los paréntesis, la ubicación del archivo (ya sea una url o una ubicación dentro de algun folder local). Se recomienda poner las imágenes en una carpeta que se llame imágenes dentro del repositorio github para que no tengan problemas al cargar las imágenes.
 
-💡**Ejemplo 2:**
+💡**Ejemplo 1:**
 
 ![Figura 1. Diagrama de bloques del sistema de mezcla.](1.png)
 
+💡**Ejemplo 2:**
+
 ![Figura 2. Diagrama de bloques del sistema térmico.](2.png)
+
+💡**Ejemplo 3:**
 
 ![Figura 3. Diagrama de bloques del sistema masa-resorte-amortiguador.](3.png)
 
