@@ -142,6 +142,17 @@ sp.pprint(X_s)
 
 📚 Ejercicio 1: Obtener la función de transferencia del siguiente diagrama de bloques:
 
+![ejercicio 1](ejercicio1.png)
+
+Paso a paso
+
+![ejercicio 1](1.1.png)
+
+![ejercicio 1](1.2.png)
+
+![ejercicio 1](1.3.png)
+
+![ejercicio 1](1.4.png)
 
 
 
