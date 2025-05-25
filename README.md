@@ -156,22 +156,22 @@ Paso a paso
 
 📚 Ejercicio 2: Obtener la función de transferencia simplificada correspondiente al siguiente diagrama de bloques.
 
+![ejercicio 2](ejercicio2.png)
+
 Paso 1
 Aplicamos la regla 5 de la tabla para bloques en paralelo, sumando así G2 y G3.
 
-
+![ejercicio 1](2.1.png)
 
 Paso 2
 Después, con la regla 4 para combinación de bloques reducimos G1:
 
-
+![ejercicio 1](2.2.png)
 
 Paso 3
 Por último, aplicamos la regla 13 para eliminar la retroalimentación y así obtenemos nuestro bloque equivalente.
 
-
-
-
+![ejercicio 1](2.3.png)
 
 ## 9. Conclusiones
 Los diagramas de bloques permiten modelar sistemas de forma visual y modular.
